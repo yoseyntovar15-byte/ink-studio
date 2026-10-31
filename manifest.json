@@ -1,0 +1,10 @@
+{
+  "name": "INK STUDIO",
+  "short_name": "INK STUDIO",
+  "description": "Agenda privada para tatuadores",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#101010",
+  "theme_color": "#101010",
+  "icons": []
+}
