@@ -1,0 +1,17 @@
+INK STUDIO — primera versión
+
+1. Descomprime la carpeta.
+2. Abre la carpeta ink-studio desde VS Code.
+3. Instala la extensión "Live Server" en VS Code.
+4. Haz clic derecho en index.html y selecciona "Open with Live Server".
+5. Para probarlo en tu teléfono, computadora y teléfono deben estar en la misma red Wi-Fi:
+   - En VS Code, abre una terminal y ejecuta: ipconfig
+   - Busca la dirección IPv4 de tu computadora.
+   - En el teléfono abre: http://DIRECCION-IP:5500
+   - Si Windows pregunta, permite el acceso en redes privadas.
+
+IMPORTANTE:
+- Esta primera versión guarda datos en el almacenamiento local del navegador del dispositivo.
+- No borres los datos del navegador ni cambies de teléfono sin hacer antes una copia de seguridad.
+- La instalación como app y las copias de seguridad se mejorarán en el siguiente paso.
+- Los importes están configurados en dólares canadienses (CAD); se puede cambiar la moneda después.

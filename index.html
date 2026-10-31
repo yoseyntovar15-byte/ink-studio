@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Agenda privada para tu estudio de tatuajes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <title>INK STUDIO</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">INK <span>STUDIO</span></div>
+      <div class="tagline">TATTOO MANAGEMENT</div>
+    </div>
+    <div class="avatar">IS</div>
+  </header>
+
+  <main id="app">
+    <section class="page active" id="inicio">
+      <div class="welcome">
+        <p class="eyebrow">PANEL PRINCIPAL</p>
+        <h1>Tu arte.<br><span>Tu agenda.</span></h1>
+        <p class="muted">Organiza tu estudio desde un solo lugar.</p>
+        <button class="primary" data-go="nueva-cita">＋ Nueva cita</button>
+      </div>
+      <div class="stats">
+        <article class="stat"><span>Citas de hoy</span><strong id="stat-hoy">0</strong></article>
+        <article class="stat"><span>Clientes</span><strong id="stat-clientes">0</strong></article>
+        <article class="stat"><span>Por cobrar</span><strong id="stat-pendiente">$0</strong></article>
+        <article class="stat"><span>Anticipos</span><strong id="stat-anticipos">$0</strong></article>
+      </div>
+      <div class="section-heading"><h2>Próximas citas</h2><button class="text-btn" data-go="citas">Ver todas</button></div>
+      <div id="home-appointments" class="stack"></div>
+    </section>
+
+    <section class="page" id="citas">
+      <div class="page-heading"><div><p class="eyebrow">TU CALENDARIO</p><h1>Citas</h1></div><button class="round-plus" data-go="nueva-cita">＋</button></div>
+      <div class="filter-row">
+        <button class="filter active" data-filter="Todas">Todas</button>
+        <button class="filter" data-filter="Pendiente">Pendientes</button>
+        <button class="filter" data-filter="Confirmada">Confirmadas</button>
+        <button class="filter" data-filter="Completada">Completadas</button>
+      </div>
+      <div id="appointments-list" class="stack"></div>
+    </section>
+
+    <section class="page" id="clientes">
+      <div class="page-heading"><div><p class="eyebrow">TU LIBRETA</p><h1>Clientes</h1></div><button class="round-plus" data-go="nuevo-cliente">＋</button></div>
+      <input id="client-search" class="search" placeholder="Buscar por nombre o teléfono…">
+      <div id="clients-list" class="stack"></div>
+    </section>
+
+    <section class="page" id="pagos">
+      <div class="page-heading"><div><p class="eyebrow">CONTROL DEL ESTUDIO</p><h1>Pagos</h1></div></div>
+      <div class="money-card"><span>Total pendiente de cobro</span><strong id="payments-due">$0</strong></div>
+      <div class="section-heading"><h2>Resumen por cita</h2></div>
+      <div id="payments-list" class="stack"></div>
+    </section>
+
+    <section class="page" id="nueva-cita">
+      <div class="page-heading"><div><p class="eyebrow">AGENDA</p><h1>Nueva cita</h1></div></div>
+      <form id="appointment-form" class="form-card">
+        <label>Nombre del cliente<input name="client" required placeholder="Ej. Carlos Méndez"></label>
+        <label>Teléfono<input name="phone" inputmode="tel" placeholder="Número de contacto"></label>
+        <div class="two-cols">
+          <label>Fecha<input name="date" type="date" required></label>
+          <label>Hora<input name="time" type="time" required></label>
+        </div>
+        <label>Diseño / zona del cuerpo<input name="design" required placeholder="Ej. Dragón en antebrazo"></label>
+        <div class="two-cols">
+          <label>Precio total ($)<input name="price" type="number" min="0" step="0.01" value="0"></label>
+          <label>Anticipo ($)<input name="deposit" type="number" min="0" step="0.01" value="0"></label>
+        </div>
+        <label>Estado<select name="status"><option>Pendiente</option><option>Confirmada</option><option>Completada</option></select></label>
+        <label>Notas<textarea name="notes" rows="3" placeholder="Detalles importantes…"></textarea></label>
+        <button class="primary full" type="submit">Guardar cita</button>
+        <button class="secondary full" type="button" data-go="citas">Cancelar</button>
+      </form>
+    </section>
+
+    <section class="page" id="nuevo-cliente">
+      <div class="page-heading"><div><p class="eyebrow">LIBRETA DE CLIENTES</p><h1>Nuevo cliente</h1></div></div>
+      <form id="client-form" class="form-card">
+        <label>Nombre completo<input name="name" required placeholder="Nombre del cliente"></label>
+        <label>Teléfono<input name="phone" inputmode="tel" placeholder="Número de contacto"></label>
+        <label>Correo (opcional)<input name="email" type="email" placeholder="correo@ejemplo.com"></label>
+        <label>Notas<textarea name="notes" rows="4" placeholder="Preferencias, alergias declaradas, detalles del proyecto…"></textarea></label>
+        <button class="primary full" type="submit">Guardar cliente</button>
+        <button class="secondary full" type="button" data-go="clientes">Cancelar</button>
+      </form>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-go="inicio"><b>⌂</b><span>Inicio</span></button>
+    <button class="nav-item" data-go="citas"><b>▦</b><span>Citas</span></button>
+    <button class="nav-item" data-go="clientes"><b>♙</b><span>Clientes</span></button>
+    <button class="nav-item" data-go="pagos"><b>$</b><span>Pagos</span></button>
+  </nav>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
